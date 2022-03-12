@@ -1,0 +1,9 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.my-container {
+  @apply xl:px-36 lg:px-14 md:px-8 px-8 w-full;
+}
