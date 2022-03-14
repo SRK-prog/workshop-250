@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>workshop-250</title>
+  </head>
+  <body class="font-body bg-[#F6FAFC]">
+    <!-- Modal -->
+    <div
+      id="Modal-bg"
+      onclick="toggleModal()"
+      class="bg-opacity-70 fixed z-10 hidden bg-modal-dark top-0 left-0 h-full w-full"
+    >
+      <div class="h-full absolute right-0 p-8 animate-show w-96 bg-white-color">
+        <h1 class="text-h4-s font-bold mb-2">Connect Wallet</h1>
+        <p class="mb-3 font-medium">
+          Connect with one of the wallet to access your profile, earning,
+          tickets and more features
+        </p>
+        <button
+          class="w-full flex justify-between items-center mb-5 p-3 border rounded-lg"
+        >
+          <span class="flex items-center"
+            ><img src="./images/Metamask-icon.png" class="h-6 mr-3" alt="" />
+            Metamask</span
+          >
+          <i class="fa-solid fa-angle-right"></i>
+        </button>
+        <button
+          class="w-full flex justify-between items-center p-3 border rounded-lg"
+        >
+          <span class="flex items-center">
+            <img
+              src="./images/Coinbase-icon-symbol-1.png"
+              class="h-6 mr-3"
+              alt=""
+            />
+            Coinbase</span
+          >
+          <i class="fa-solid fa-angle-right"></i>
+        </button>
+        <div>
+          <img
+            class="absolute bottom-0 right-0"
+            src="./images/modal-bottom.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <!-- Navbar section -->
+    <nav
+      class="flex items-center justify-between shadow-[#cfcfcf] shadow-md flex-wrap py-9 xl:px-36 lg:px-14 md:px-8 px-8"
+    >
+      <a href="./index.html" class="flex items-center flex-shrink-0 text-black">
+        <img src="./images/Logo-Color.png" alt="menu" />
+      </a>
+      <div id="btn" class="block lg:hidden">
+        <button class="flex items-center justify-center">
+          <img class="h-7" src="./images/menu.png" alt="" />
+        </button>
+      </div>
+      <div
+        id="menu"
+        class="w-full lg:mr-9 text-left flex-grow lg:text-right sm:items-center mx-auto lg:w-auto lg:py-2 lg:block hidden lg:animate-none animate-slide"
+      >
+        <div class="font-medium xl:flex-grow">
+          <a
+            href="#"
+            class="block mt-4 lg:inline-block lg:mt-0 text-black mr-8 link-hover"
+          >
+            PLAY
+          </a>
+          <a
+            href="#"
+            class="block mt-4 lg:inline-block lg:mt-0 text-black mr-8 link-hover"
+          >
+            SPONSOR
+          </a>
+          <a
+            href="#"
+            class="block mt-4 lg:inline-block lg:mt-0 text-black mr-8 link-hover"
+          >
+            DISTRIBUTE
+          </a>
+          <a
+            href="#"
+            class="block mt-4 lg:inline-block lg:mt-0 text-black mr-8 link-hover"
+          >
+            RETAIL
+          </a>
+          <a
+            href="#"
+            class="block mt-4 lg:inline-block lg:mt-0 text-black mr-8 link-hover"
+          >
+            ABOUT
+          </a>
+          <a
+            href="#"
+            class="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-slate-500 link-hover"
+          >
+            COMMUNITY
+          </a>
+
+          <a
+            onclick="toggleModal()"
+            href="#"
+            class="md:hidden inline-block rounded-full font-medium text-xs px-4 py-3 leading-none bg-blue-color text-white-color mt-4 lg:mt-0 duration-100 hover:scale-110"
+            >CONNECT WALLET</a
+          >
+        </div>
+      </div>
+      <div
+        class="items-center justify-end ml-auto w-full flex-row flex lg:mt-0 lg:w-auto"
+      >
+        <a
+          onclick="toggleModal()"
+          href="#"
+          class="1xl:inline-block hidden rounded-full font-medium text-md md:px-5 px-2 py-3 leading-none bg-blue-color text-white-color mt-4 lg:mt-0 duration-100 hover:scale-105"
+          >CONNECT WALLET</a
+        >
+      </div>
+    </nav>
+
+    <!-- steps section -->
+    <section class="my-container mt-9">
+      <div class="lg:text-h1-s text-lg mb-6 text-center font-[700]">
+        Select a game to play
+      </div>
+      <div class="my-10 flex w-full items-center">
+        <input
+          class="rounded-4xl p-3 flex flex-auto focus:outline-none focus:outline-2 focus:outline-[#dedede] mr-5"
+          placeholder="Search Game"
+          type="text"
+        />
+        <span>
+          <label
+            onclick="sortToggle()"
+            class="rounded-4xl py-3 flex items-center px-7 cursor-pointer font-semibold relative bg-[#fff]"
+            ><i class="fa-solid fa-arrow-up-z-a mr-1"></i>
+            <p class="md:block hidden">Game Rating</p></label
+          >
+          <ul
+            id="sortlist"
+            class="absolute hidden z-10 bg-[#fff] shadow-md p-4 rounded-lg leading-8 text-sm font-medium md:right-32 right-0 shadow-[#a1a1a1]"
+          >
+            <li>Price high to low</li>
+            <li>Price low to high</li>
+            <li>Recently added</li>
+          </ul>
+        </span>
+      </div>
+    </section>
+
+    <section class="my-container mt-16 mb-32">
+      <div
+        class="grid gap-5 1xl:grid-cols-4 relative lg:grid-cols-3 sm:grid-cols-2 grid-cols-1"
+      >
+        <div class="flex flex-col mb-5">
+          <img
+            class="cursor-pointer"
+            src="./images/Mask Group 2@2x.png"
+            alt=""
+          />
+          <div
+            class="-mt-9 bg-white-color pb-5 pt-3 px-5 rounded-b-large min-h-[150px]"
+          >
+            <div class="flex justify-between items-center">
+              <p class="font-semibold flex my-2">
+                Super Crossword
+                <span
+                  class="flex items-center ml-1 h-5 text-xs gap-1 bg-btn-color-primary text-white-color px-1 rounded"
+                >
+                  4.7
+                  <img class="h-3" src="./images/Polygon 1@2x.png" alt="" />
+                </span>
+              </p>
+              <p class="font-semibold text-navyblue-color">$2.00</p>
+            </div>
+            <p class="">
+              Bonus edition of this crossword gives you 50% chances of winning
+              the game.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col mb-5">
+          <img
+            class="cursor-pointer"
+            src="./images/Mask Group 3@2x.png"
+            alt=""
+          />
+          <div
+            class="-mt-9 bg-white-color pb-5 pt-3 px-5 rounded-b-large min-h-[150px]"
+          >
+            <div class="flex justify-between">
+              <p class="font-semibold flex my-2">
+                Scratch and Win
+                <span
+                  class="flex items-center ml-1 h-5 text-xs gap-1 bg-btn-color-primary text-white-color px-1 rounded"
+                >
+                  4.7
+                  <img class="h-3" src="./images/Polygon 1@2x.png" alt="" />
+                </span>
+              </p>
+              <p class="font-semibold text-navyblue-color">$2.00</p>
+            </div>
+            <p class="">
+              Connect wallet to receive 10% of the profits from every game you
+              designed that is sold
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col mb-5">
+          <img
+            class="cursor-pointer"
+            src="./images/Mask Group 4@2x.png"
+            alt=""
+          />
+          <div
+            class="-mt-9 bg-white-color pb-5 pt-3 px-5 rounded-b-large min-h-[150px]"
+          >
+            <div class="flex justify-between">
+              <p class="font-semibold flex my-2">
+                Diamond Lotto
+                <span
+                  class="flex items-center ml-1 h-5 text-xs gap-1 bg-btn-color-primary text-white-color px-1 rounded"
+                >
+                  4.7
+                  <img class="h-3" src="./images/Polygon 1@2x.png" alt="" />
+                </span>
+              </p>
+              <p class="font-semibold text-navyblue-color">$2.00</p>
+            </div>
+            <p class="">
+              Vestibulum aliquam ante quis enim condimentum, ut varius est
+              malesuada.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col mb-5">
+          <img
+            class="cursor-pointer"
+            src="./images/Mask Group 3@2x.png"
+            alt=""
+          />
+          <div
+            class="-mt-9 bg-white-color pb-5 pt-3 px-5 rounded-b-large min-h-[150px]"
+          >
+            <div class="flex justify-between">
+              <p class="font-semibold flex my-2">
+                Royal Slots
+                <span
+                  class="flex items-center ml-1 h-5 text-xs gap-1 bg-btn-color-primary text-white-color px-1 rounded"
+                >
+                  4.7
+                  <img class="h-3" src="./images/Polygon 1@2x.png" alt="" />
+                </span>
+              </p>
+              <p class="font-semibold text-navyblue-color">$2.00</p>
+            </div>
+            <p class="">
+              Donec posuere, metus at accumsan pharetra, nulla urna lobortis
+              ipsum, in pellentesque leo magna.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col mb-5">
+          <img
+            class="cursor-pointer"
+            src="./images/Mask Group 5@2x.png"
+            alt=""
+          />
+          <div
+            class="-mt-9 bg-white-color pb-5 pt-3 px-5 rounded-b-large min-h-[150px]"
+          >
+            <div class="flex justify-between">
+              <p class="font-semibold flex my-2">
+                Big Win
+                <span
+                  class="flex items-center ml-1 h-5 text-xs gap-1 bg-btn-color-primary text-white-color px-1 rounded"
+                >
+                  4.7
+                  <img class="h-3" src="./images/Polygon 1@2x.png" alt="" />
+                </span>
+              </p>
+              <p class="font-semibold text-navyblue-color">$2.00</p>
+            </div>
+            <p class="">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+              nonumy eirmod tempor
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col mb-5">
+          <img
+            class="cursor-pointer"
+            src="./images/Mask Group 6@2x.png"
+            alt=""
+          />
+          <div
+            class="-mt-9 bg-white-color pb-5 pt-3 px-5 rounded-b-large min-h-[150px]"
+          >
+            <div class="flex justify-between">
+              <p class="font-semibold flex my-2">
+                Lucky Hunt
+                <span
+                  class="flex items-center ml-1 h-5 text-xs gap-1 bg-btn-color-primary text-white-color px-1 rounded"
+                >
+                  4.7
+                  <img class="h-3" src="./images/Polygon 1@2x.png" alt="" />
+                </span>
+              </p>
+              <p class="font-semibold text-navyblue-color">$2.00</p>
+            </div>
+            <p class="">
+              Connect wallet to receive 10% of the profits from every game you
+              designed that is sold
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col mb-5">
+          <img
+            class="cursor-pointer"
+            src="./images/Mask Group 7@2x.png"
+            alt=""
+          />
+          <div
+            class="-mt-9 bg-white-color pb-5 pt-3 px-5 rounded-b-large min-h-[150px]"
+          >
+            <div class="flex justify-between">
+              <p class="font-semibold flex my-2">
+                Wheel of Fortune
+                <span
+                  class="flex items-center ml-1 h-5 text-xs gap-1 bg-btn-color-primary text-white-color px-1 rounded"
+                >
+                  4.7
+                  <img class="h-3" src="./images/Polygon 1@2x.png" alt="" />
+                </span>
+              </p>
+              <p class="font-semibold text-navyblue-color">$2.00</p>
+            </div>
+            <p class="">
+              Fusce volutpat, lacus a porta bibendum, lacus sapien feugiat
+              turpis, vehicula iaculis eros.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col mb-5">
+          <img
+            class="cursor-pointer"
+            src="./images/Mask Group 2@2x.png"
+            alt=""
+          />
+          <div
+            class="-mt-9 bg-white-color pb-5 pt-3 px-5 rounded-b-large min-h-[150px]"
+          >
+            <div class="flex justify-between">
+              <p class="font-semibold flex my-2">
+                Crossword Cash
+                <span
+                  class="flex items-center ml-1 h-5 text-xs gap-1 bg-btn-color-primary text-white-color px-1 rounded"
+                >
+                  4.7
+                  <img class="h-3" src="./images/Polygon 1@2x.png" alt="" />
+                </span>
+              </p>
+              <p class="font-semibold text-navyblue-color">$2.00</p>
+            </div>
+            <p class="">
+              Fusce finibus tempor neque eu dignissim. Cras porta lectus ac elit
+              porta faucibus.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer-section -->
+    <footer class="my-container bg-navyblue-color">
+      <div class="text-white-color gap-4 lg:flex py-16">
+        <div class="flex-1 flex flex-col justify-center">
+          <div class="mb-8 md:ml-0 mx-auto">
+            <img
+              class="object-fit max-h-20"
+              src="./images/Logo-White@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="md:text-left text-center">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+            maxime dolore libero sit suscipit facere soluta eaque non.
+            Exercitationem expedita, adipisci impedit deleniti rerum mollitia
+            sed labore aliquid incidunt natus!
+          </div>
+        </div>
+        <div class="flex-1 flex justify-between mt-7">
+          <ul class="footer-links">
+            <li>Play</li>
+            <li>Create</li>
+            <li>Sponcer</li>
+            <li>Distribute</li>
+            <li>Retail</li>
+          </ul>
+          <ul class="footer-links">
+            <li>About</li>
+            <li>Developers Documentation</li>
+            <li>Privacy Policy</li>
+            <li>Terms of use</li>
+            <li>Help</li>
+          </ul>
+          <ul class="footer-links">
+            <li>Community</li>
+            <li>Twitter</li>
+            <li>Facebook</li>
+            <li>Reddit</li>
+            <li>Telegram</li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="py-12 text-center border-2 border-navyblue-color border-t-btn-color-secondary font-normal text-white-color"
+      >
+        Lottery of the people &copy; 2022
+      </div>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>

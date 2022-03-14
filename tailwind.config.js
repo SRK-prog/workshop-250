@@ -10,6 +10,7 @@ module.exports = {
       "blue-color": "#3D61B0",
       "darkblue-color": "#333333",
       "white-color": "#fff",
+      "modal-dark": "#0f0f0f",
     },
     fontSize: {
       xs: ".75rem",
@@ -54,6 +55,26 @@ module.exports = {
       lg: "1024px",
       xl: "1280px",
       "2xl": "1536px",
+      "1xl": "1355px",
+    },
+    extend: {
+      animation: {
+        show: "show 300ms",
+        slide: "slide 300ms",
+      },
+      keyframes: {
+        show: {
+          "0%": { transform: "translate(384px)" },
+          "100%": { transform: "translate(0)" },
+        },
+        slide: {
+          "0%": { transform: "translateY(-84px)" },
+          "100%": { transform: "translateY(0)" },
+        },
+      },
+      backgroundImage: {
+        "bottom-img": "url('./images/Bottom.png')",
+      },
     },
   },
 };

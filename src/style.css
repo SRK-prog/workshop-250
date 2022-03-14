@@ -7,3 +7,19 @@
 .my-container {
   @apply xl:px-36 lg:px-14 md:px-8 px-8 w-full;
 }
+
+.link-hover {
+  @apply relative before:absolute hover:before:w-full before:bottom-0 before:bg-btn-color-primary before:h-[2px];
+}
+
+.accordian-list {
+  @apply flex items-center justify-between border-b-2 mb-4 pb-4 border-[#cccccce7];
+}
+
+.steps-desc {
+  @apply xsm:w-40 w-60 text-center mb-6;
+}
+
+.footer-links {
+  @apply leading-loose md:text-left text-center sm:text-[16px] text-sm;
+}
