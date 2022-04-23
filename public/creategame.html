@@ -66,17 +66,15 @@
     <nav
       class="flex items-center justify-between shadow-[#cfcfcf] shadow-md flex-wrap py-9 xl:px-36 lg:px-14 md:px-8 px-8"
     >
-      <a href="./index.html" class="flex items-center flex-shrink-0 text-black">
+      <a href="./index.html">
         <img src="./images/Logo-Color.png" alt="menu" />
       </a>
-      <div id="btn" class="block lg:hidden">
-        <button class="flex items-center justify-center">
-          <img class="h-7" src="./images/menu.png" alt="" />
-        </button>
-      </div>
+      <button id="btn" class="block lg:hidden">
+        <img class="h-7" src="./images/menu.png" alt="" />
+      </button>
       <div
         id="menu"
-        class="w-full lg:mr-9 text-left flex-grow lg:text-right sm:items-center mx-auto lg:w-auto lg:py-2 lg:block hidden"
+        class="w-full lg:mr-9 text-left flex-grow lg:text-right sm:items-center mx-auto lg:w-auto lg:py-2 lg:block hidden lg:animate-none animate-slide"
       >
         <div class="font-medium xl:flex-grow">
           <a
@@ -119,7 +117,7 @@
           <a
             onclick="toggleModal()"
             href="#"
-            class="md:hidden inline-block rounded-full font-medium text-xs px-4 py-3 leading-none bg-blue-color text-white-color mt-4 lg:mt-0 duration-100 hover:scale-110"
+            class="lg:hidden inline-block rounded-full font-medium text-xs px-4 py-3 leading-none bg-blue-color text-white-color mt-4 lg:mt-0 duration-100 hover:scale-110"
             >CONNECT WALLET</a
           >
         </div>
